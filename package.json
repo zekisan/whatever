@@ -2,7 +2,9 @@
   "name": "whatever",
   "version": "0.1.0",
   "private": true,
-  "engines" : { "node" : "8.4.0" },
+  "engines": {
+    "node": "8.4.0"
+  },
   "dependencies": {
     "classnames": "^2.2.5",
     "express": "^4.15.4",
