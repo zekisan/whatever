@@ -6,8 +6,6 @@ import App from './components/App';
 import About from './components/About';
 import NotFound from './components/NotFound';
 
-import aboutReducer from './stores/reducers/About';
-
 const Routes = (props) => {
     return (
         <Provider store={props.store}>
@@ -31,5 +29,3 @@ const ConnectedComponent = connect(mapStateToProps)(Routes);
 export default function Root(props) {
     return <Provider store={props.store}><ConnectedComponent {...props} /></Provider>
 }
-
-//export default Routes;

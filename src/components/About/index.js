@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter }from 'react-router-dom';
-import classnames from 'classnames';
+import { Link }from 'react-router-dom';
 import { Container, Card, CardText, CardBlock, CardTitle, CardSubtitle, Button } from 'reactstrap';
-import { Provider, connect } from 'react-redux';
 
-import store from '../../stores';
-import aboutReducer from '../../stores/reducers/About';
 import  * as AboutActions from '../../stores/reducers/About';
 import './style.css';
 
@@ -19,13 +15,13 @@ class About extends Component {
 
     static propTypes = {
         //about: PropTypes.object,
-        //dispatch: PropTypes.func
+        number: PropTypes.number
     }
     // static defaultProps = {}
     // state = {}
 
     addNumber2() {
-        this.props.store.dispatch(AboutActions.addNumber(this.props.number + 1));
+        this.props.store.dispatch(AboutActions.addNumber());
     }
 
     render() {

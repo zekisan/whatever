@@ -9,12 +9,12 @@ const DEFAULT_STATE = Immutable.fromJS({
 export default function reducer(state = DEFAULT_STATE, action = {}) {
     switch(action.type) {
         case ADD_NUMBER:
-            return state.set('number', action.value);
+            return state.set('number', state.get('number') + 1);
         default:
             return state;
     }
 }
 
-export function addNumber(value) {
-    return { type: ADD_NUMBER, value };
+export function addNumber() {
+    return { type: ADD_NUMBER };
 }
