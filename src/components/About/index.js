@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { Link }from 'react-router-dom';
 import { Container, Card, CardText, CardBlock, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { compose, withHandlers, withProps } from 'recompose';
+import { withRouter } from 'react-router-dom'
 
 import  * as AboutActions from '../../stores/reducers/About';
 import './style.css';
 
 const About = (props) => {
-    const { totalNumber, onClick } = props;
+    const { totalNumber, onClick, onPush } = props;
     return (
         <div className='About'>
             <p><Link to="/">Home</Link></p>
@@ -24,6 +25,7 @@ const About = (props) => {
                     </CardBlock>
                 </Card>
             </Container>
+            <Button color="danger" onClick={onPush}>Redirect nowhere</Button>
         </div>
     );
 }
@@ -35,6 +37,9 @@ About.propTypes = {
 const withComponentHandlers = withHandlers({
     onClick: ({ store }) => (e) => {
         store.dispatch(AboutActions.addNumber());
+    },
+    onPush: ({ history }) => (e) => {
+        history.push('/asdlkajsd');
     }
 });
 
@@ -44,6 +49,7 @@ const withComponentProps = withProps(props => ({
 
 const decorate = compose(
     withComponentProps,
+    withRouter,
     withComponentHandlers
 );
 
