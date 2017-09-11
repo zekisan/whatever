@@ -6,6 +6,18 @@ import logo from './logo.svg';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button } from 'reactstrap';
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`
+
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+`
 
 class App extends Component {
   static propTypes = {
@@ -27,6 +39,9 @@ class App extends Component {
         </p>
         <p><Link to="/about">About</Link></p>
         <Link to="/about"><Button color="danger">About</Button></Link>
+        <Wrapper>
+          <Title>First component using styled components</Title>
+        </Wrapper>
       </div>
     );
   }
