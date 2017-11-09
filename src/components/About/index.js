@@ -26,6 +26,11 @@ const About = (props) => {
                 </Card>
             </Container>
             <Button color="danger" onClick={onPush}>Redirect nowhere</Button>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <Father><Child text="fdfsfdsf"/><Child text="dasd"/></Father>
         </div>
     );
 }
@@ -33,6 +38,10 @@ const About = (props) => {
 About.propTypes = {
     number: PropTypes.number
 };
+
+const Father = props => <div>{props.children}</div>;
+
+const Child = props => <p>{props.text}</p>;
 
 const withComponentHandlers = withHandlers({
     onClick: ({ store }) => (e) => {
