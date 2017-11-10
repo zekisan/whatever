@@ -7,6 +7,7 @@ import About from './components/About';
 import NotFound from './components/NotFound';
 
 import { callTemperatureApi } from './stores/reducers/Temperature';
+import store from './stores';
 
 class Main extends Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class Main extends Component {
     }
 
     render() {
-        const { title, store, about, temp } = this.props;
+        const { title, dispatch, about, temp } = this.props;
         const routes = [
             {
                 path: '/',
@@ -23,7 +24,7 @@ class Main extends Component {
             },
             {
                 path: '/about',
-                main: () => <About store={store} number={about.number}/>
+                main: () => <About dispatch={dispatch} number={about.number}/>
             },
             {
                 main: () => <NotFound/>
@@ -73,5 +74,5 @@ function mapStateToProps(state) {
 const ConnectedComponent = connect(mapStateToProps)(Main);
 
 export default function Root(props) {
-    return <Provider store={props.store}><ConnectedComponent {...props} /></Provider>
+    return <Provider store={store}><ConnectedComponent {...props} /></Provider>
 }

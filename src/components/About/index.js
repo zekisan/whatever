@@ -44,8 +44,8 @@ const Father = props => <div>{props.children}</div>;
 const Child = props => <p>{props.text}</p>;
 
 const withComponentHandlers = withHandlers({
-    onClick: ({ store }) => (e) => {
-        store.dispatch(AboutActions.addNumber());
+    onClick: ({ dispatch }) => (e) => {
+        dispatch(AboutActions.addNumber());
     },
     onPush: ({ history }) => (e) => {
         history.push('/asdlkajsd');
