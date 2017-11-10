@@ -1,37 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link }from 'react-router-dom';
-import { Container, Card, CardText, CardBlock, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { compose, withHandlers, withProps } from 'recompose';
 import { withRouter } from 'react-router-dom'
+import { Button, Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 
 import  * as AboutActions from '../../stores/reducers/About';
 import './style.css';
+import FKing from '../../fking.jpg';
 
 const About = (props) => {
     const { totalNumber, onClick, onPush } = props;
     return (
-        <div className='About'>
-            <p><Link to="/">Home</Link></p>
-            <h1>Fuck the king 2 - Abouts</h1>
-            <h1>Counter - { totalNumber }</h1>
-            <Container>
-                <Card block>
-                    <CardBlock>
-                        <CardTitle>Card title</CardTitle>
-                        <CardSubtitle>Card subtitle</CardSubtitle>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                        <Button color="danger" onClick={onClick}>Button</Button>
-                    </CardBlock>
-                </Card>
-            </Container>
-            <Button color="danger" onClick={onPush}>Redirect nowhere</Button>
+        <Row className='About'>
+            <Row>
+                <Col m={6} s={12}>
+                    <h2>Fuck the king 2 - About</h2>
+                    <h2>Counter - { totalNumber }</h2>
+                </Col>
+            </Row>
+            <Row>
+                <Col m={6} s={12}>
+                    <Card className='small' header={<CardTitle image={FKing}>Card Title</CardTitle>}
+                        actions={[<a onClick={onClick}>This is a Link</a>]}>
+                        I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
+                    </Card>
+                </Col>
+            </Row>
+            <Row>
+                <Col m={6} s={12}>
+                    <Link to="/sadasdad">
+                        <Button waves='light'onClick={onPush}>Redirect nowhere<Icon left>cloud</Icon></Button>
+                    </Link>
+                </Col>
+            </Row>
             <br/>
             <br/>
             <br/>
             <br/>
             <Father><Child text="fdfsfdsf"/><Child text="dasd"/></Father>
-        </div>
+        </Row>
     );
 }
 

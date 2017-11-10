@@ -4,9 +4,8 @@ import { Link }from 'react-router-dom';
 import classnames from 'classnames';
 import logo from './logo.svg';
 import './style.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import { Button } from 'reactstrap';
 import styled from 'styled-components';
+import { Button, Icon, Row } from 'react-materialize';
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -30,15 +29,20 @@ class App extends Component {
     const { className, title } = this.props;
     return (
       <div className={classnames('App', className)}>
-        <div className="App-header">
+        <Row>
           <img src={logo} className="App-logo" alt="logo" />
           <h2>{title}</h2>
-        </div>
+        </Row>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <p><Link to="/about">About</Link></p>
-        <Link to="/about"><Button color="danger">About</Button></Link>
+        <Link to="/about">
+          <Button waves='light'>About<Icon left>cloud</Icon></Button>
+        </Link>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <Wrapper>
           <Title>First component using styled components</Title>
         </Wrapper>

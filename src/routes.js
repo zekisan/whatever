@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider, connect } from 'react-redux';
+import { Navbar, NavItem, Footer } from 'react-materialize';
+import { LinkContainer } from 'react-router-bootstrap';
 
 import App from './components/App';
 import About from './components/About';
@@ -33,19 +35,12 @@ class Main extends Component {
 
         return (
             <Router>
-                <div style={{ display: 'flex' }}>
-                    <div style={{
-                        padding: '10px',
-                        width: '15%',
-                        background: '#f0f0f0'
-                    }}>
-                        <ul style={{ listStyleType: 'none', padding: 0 }}>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/about">About</Link></li>
-                        </ul>
-                        <p>{`Temperatura: ${temp.temp}°C`}</p>
-                    </div>
-                    <div style={{ flex: 1, padding: '10px' }}>
+                <div>
+                    <Navbar brand={`${temp.temp}°C`} right>
+                        <LinkContainer to="/"><NavItem>Home</NavItem></LinkContainer>
+                        <LinkContainer to="/about"><NavItem>About</NavItem></LinkContainer>
+                    </Navbar>
+                    <div>
                         <Switch>
                             {routes.map((route, index) => (
                                     <Route
@@ -58,6 +53,23 @@ class Main extends Component {
                             )}
                         </Switch>
                     </div>
+                    <Footer copyrights="&copy 2015 Copyright Text"
+                        moreLinks={
+                            <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+                        }
+                        links={
+                            <ul>
+                                <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                                <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                                <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                                <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                            </ul>
+                        }
+                        className='example'
+                    >
+                            <h5 className="white-text">Footer Content</h5>
+                            <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    </Footer>;
                 </div>
             </Router>
         );
