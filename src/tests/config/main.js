@@ -1,2 +1,2 @@
-var AppRouter = require('./router');
-AppRouter.renderComponent(document.body);
+var AppRouter = require('./router')
+AppRouter.renderComponent(document.body)

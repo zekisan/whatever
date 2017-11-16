@@ -1,2 +1,2 @@
-var Router = require('react-router-dom').Router;
-module.exports = Router(/* ... */);
+var Router = require('react-router-dom').Router
+module.exports = Router(/* ... */)
