@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { compose, withHandlers, withProps } from 'recompose'
-import { withRouter } from 'react-router-dom'
 import { Button, Row, Col, Card, CardTitle, Icon } from 'react-materialize'
 
 import * as AboutActions from '../../stores/reducers/About'
@@ -16,7 +15,7 @@ const About = (props) => {
       <Row>
         <Col m={6} s={12}>
           <h2>Fuck the king 2 - About</h2>
-          <h2>Counter - { totalNumber }</h2>
+          <h2>Counter - { totalNumber.askdjhasd }</h2>
         </Col>
       </Row>
       <Row>

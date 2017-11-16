@@ -2,13 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../components/App'
 import { BrowserRouter as Router } from 'react-router-dom'
+import {configure, shallow} from 'enzyme'
 
-import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-15'
 
 configure({ adapter: new Adapter() })
-
-import {shallow} from 'enzyme'
 
 const AppWithRouter = () => {
   return (

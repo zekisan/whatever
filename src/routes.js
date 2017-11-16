@@ -7,6 +7,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import App from './components/App'
 import About from './components/About'
 import NotFound from './components/NotFound'
+import ErrorBoundary from './components/ErrorBoundary'
 
 import { callTemperatureApi } from './stores/reducers/Temperature'
 import store from './stores'
@@ -86,5 +87,9 @@ function mapStateToProps (state) {
 const ConnectedComponent = connect(mapStateToProps)(Main)
 
 export default function Root (props) {
-  return <Provider store={store}><ConnectedComponent {...props} /></Provider>
+  return <Provider store={store}>
+    <ErrorBoundary>
+      <ConnectedComponent {...props} />
+    </ErrorBoundary>
+  </Provider>
 }
